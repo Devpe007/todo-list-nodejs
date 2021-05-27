@@ -5,11 +5,11 @@ import databaseConfig from '../config/database';
 import User from '../app/models/User';
 import Task from '../app/models/Task';
 
-const models = [User, Task]
+const models = [User, Task];
 
 class Database {
     constructor() {
-        this.init()
+        this.init();
     };
 
     init() {
@@ -18,6 +18,6 @@ class Database {
         models.map(model => model.init(this.connection))
         .map(model => model.associate && model.associate(this.connection.models));
     };
-}
+};
 
 export default new Database;

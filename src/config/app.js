@@ -2,7 +2,8 @@ import express from 'express';
 import cors from 'cors';
 
 import routes from '../routes';
-import '../database/index';
+
+import '../database';
 
 const server = express();
 

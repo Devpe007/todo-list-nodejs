@@ -2,6 +2,7 @@ import { Router } from 'express';
 
 import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
+import TaskController from './app/controllers/TaskController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -11,8 +12,11 @@ routes.post('/users', UserController.store);
 
 routes.post('/login', SessionController.store);
 
+// Todas as rotas abaixo deste middleware precisaram de autenticação.
 routes.use(authMiddleware);
 
 routes.put('/users', UserController.update);
+
+routes.post('/tasks', TaskController.store);
 
 export default routes;
